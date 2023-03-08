@@ -16,10 +16,15 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
+    - setuptools_scm
+    - toml
   run:
-    - python >=3.6
+    - python
+    - typing_extensions  # [py<310]
 
 test:
   imports:
