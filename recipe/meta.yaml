@@ -27,11 +27,16 @@ requirements:
     - typing_extensions  # [py<310]
 
 test:
+  requires:
+    - pip
   imports:
     - bytecode
+  commands:
+    - pip check
 
 about:
   home: https://github.com/vstinner/bytecode
+  description: bytecode is a Python module to generate and modify bytecode.
   license: MIT
   license_family: MIT
   license_file: COPYING
