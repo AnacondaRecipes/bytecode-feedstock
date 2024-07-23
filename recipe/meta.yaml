@@ -27,22 +27,26 @@ requirements:
     - typing_extensions  # [py<310]
 
 test:
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest
   imports:
     - bytecode
   commands:
     - pip check
+    - pytest tests -v
 
 about:
-  home: https://github.com/vstinner/bytecode
+  home: https://github.com/MatthieuDartiailh/bytecode
   description: bytecode is a Python module to generate and modify bytecode.
   license: MIT
   license_family: MIT
   license_file: COPYING
   summary: A Python module to generate and modify Python bytecode.
   doc_url: https://bytecode.readthedocs.io/
-  dev_url: https://github.com/vstinner/bytecode
+  dev_url: https://github.com/MatthieuDartiailh/bytecode
 
 extra:
   recipe-maintainers:
