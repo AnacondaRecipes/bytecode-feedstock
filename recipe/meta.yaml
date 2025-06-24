@@ -21,6 +21,7 @@ requirements:
     - setuptools >=61.2
     - wheel
     - setuptools-scm >=3.4.3
+    - toml
   run:
     - python
     - typing_extensions  # [py<310]
