@@ -1,13 +1,13 @@
 {% set name = "bytecode" %}
-{% set version = "0.15.1" %}
+{% set version = "0.16.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7263239a8d3f70fc7c303862b20cd2c6788052e37ce0a26e67309d280e985984
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: f05020b6dc1f48cdadd946f7c3a03131ba0f312bd103767c5d75559de5c308f8
 
 build:
   skip: true  # [py<38]
@@ -18,9 +18,9 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=61.2
     - wheel
-    - setuptools_scm
+    - setuptools-scm >=3.4.3
     - toml
   run:
     - python
@@ -36,6 +36,7 @@ test:
     - bytecode
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - pytest tests -v
 
 about:
@@ -45,7 +46,7 @@ about:
   license_family: MIT
   license_file: COPYING
   summary: A Python module to generate and modify Python bytecode.
-  doc_url: https://bytecode.readthedocs.io/
+  doc_url: https://bytecode.readthedocs.io
   dev_url: https://github.com/MatthieuDartiailh/bytecode
 
 extra:
